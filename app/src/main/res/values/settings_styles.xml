@@ -1,0 +1,27 @@
+<resources>
+    <color name="settings_blue">#8CB7FF</color>
+    <color name="settings_secondary">#A3A3AF</color>
+
+    <style name="SettingsButton" parent="@android:style/Widget.Material.Button">
+        <item name="android:background">@drawable/settings_primary</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:paddingHorizontal">16dp</item>
+        <item name="android:paddingVertical">8dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="SettingsButton.Secondary">
+        <item name="android:background">@drawable/btn_ghost</item>
+        <item name="android:textColor">@color/settings_blue</item>
+    </style>
+
+    <style name="SettingsConfirmation" parent="@android:style/Theme.Material.Dialog.Alert">
+        <item name="android:colorAccent">@color/settings_blue</item>
+        <item name="android:colorBackgroundFloating">@color/surface</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+    </style>
+</resources>

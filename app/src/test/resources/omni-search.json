@@ -1,0 +1,33 @@
+{
+  "searchResults": [
+    {
+      "contentGroupType": "Game",
+      "contents": [
+        {
+          "rootPlaceId": 142823291,
+          "name": "Murder Mystery 2",
+          "creatorName": "Example Studio"
+        }
+      ]
+    },
+    {
+      "contentGroupType": "Game",
+      "contents": [
+        {
+          "rootPlaceId": 987654321,
+          "name": "Example Game",
+          "creatorName": ""
+        }
+      ]
+    },
+    {
+      "contentGroupType": "Avatar",
+      "contents": [
+        {
+          "rootPlaceId": 345678,
+          "name": "Ignored result"
+        }
+      ]
+    }
+  ]
+}

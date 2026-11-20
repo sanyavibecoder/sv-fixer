@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="2dp"
+        android:text="@string/settings_domain_description"
+        android:textColor="@color/settings_secondary"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:labelFor="@+id/domainInput"
+        android:text="@string/settings_domain_label"
+        android:textColor="@color/text_primary"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@id/domainInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/field"
+        android:fontFamily="@font/inter_medium"
+        android:hint="@string/settings_domain_example"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:inputType="textUri"
+        android:minHeight="56dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        android:singleLine="true"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/settings_secondary"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/domainNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:accessibilityLiveRegion="polite"
+        android:text="@string/settings_domain_default_note"
+        android:textColor="@color/settings_secondary"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/domainHelp"
+        style="@style/SettingsButton.Secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawableStart="@drawable/ic_info"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/settings_blue"
+        android:gravity="start|center_vertical"
+        android:text="@string/settings_domain_help" />
+
+    <Button
+        android:id="@+id/domainSave"
+        style="@style/SettingsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/settings_save" />
+
+    <Button
+        android:id="@+id/domainReset"
+        style="@style/SettingsButton.Secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/settings_domain_reset" />
+</LinearLayout>
