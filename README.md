@@ -1,3 +1,5 @@
+<a name="sv-fixer"></a>
+
 # 🛠️ SV Fixer
 
 SV Fixer — Android-приложение для случаев, когда в Roblox не загружаются изображения, YouTube не воспроизводит видео или игры Supercell не подключаются. Приложение создаёт локальный VPN, обрабатывает DNS-запросы и соединения поддерживаемых приложений на телефоне. Для Telegram есть отдельный MTProto-прокси, которому нужен совместимый ретранслятор.
@@ -7,6 +9,7 @@ SV Fixer — Android-приложение для случаев, когда в R
 [Как работает VPN](#vpn) · [Диагностика](#diagnostics) · [Сборка](#build) · [Карта исходников](#source-map)
 
 <a name="quick-start"></a>
+<a name="быстрый-старт"></a>
 
 ## 🚀 Быстрый старт
 
@@ -27,6 +30,7 @@ SV Fixer — Android-приложение для случаев, когда в R
 </table>
 
 <a name="vpn"></a>
+<a name="как-работает-vpn"></a>
 
 ## 🌐 Как работает VPN
 
@@ -42,6 +46,7 @@ SV Fixer использует системный `VpnService` и направл�
 Поддержка сервисов зависит от сети и провайдера. VPN предназначен для перечисленных приложений и работает с IPv4. DNS выбранных приложений может уходить сторонним резолверам, а при включённом ретрансляторе через его оператора проходит трафик прокси Telegram и запросы ресурсов Clash Royale.
 
 <a name="roblox-guide"></a>
+<a name="roblox"></a>
 
 ## 🎮 Roblox
 
@@ -54,6 +59,7 @@ SV Fixer использует системный `VpnService` и направл�
 «Ближайший» здесь означает подбор по оценке задержки из списка Roblox. Местоположение телефона при подборе не используется, а фактический пинг зависит от сети. Поиск использует публичное API Roblox без доступа к аккаунту.
 
 <a name="relay"></a>
+<a name="домен-для-telegram-и-clash-royale"></a>
 
 ## 🔗 Домен для Telegram и Clash Royale
 
@@ -68,6 +74,7 @@ Telegram подключается к локальному MTProto-прокси `
 Кнопка **Очистить домен** в разделе **Настройки → Домен Cloudflare** отключает ретранслятор. Если в Telegram выбран прокси SV Fixer, отключите его в клиенте.
 
 <a name="faq"></a>
+<a name="частые-проблемы"></a>
 
 ## ☑️ Распространенные вопросы и проблемы
 
@@ -108,6 +115,7 @@ Telegram подключается к локальному MTProto-прокси `
 Запустите проверку соединения на проблемной сети. В отчёте найдите счётчики DNS игровых серверов `dns.clash.*` и `dns.brawl.*`. [Как запустить проверку](#diagnostics)
 
 <a name="diagnostics"></a>
+<a name="диагностика"></a>
 
 ## 🔍 Диагностика
 
@@ -119,6 +127,8 @@ Telegram подключается к локальному MTProto-прокси `
 
 В описании ошибки укажите версию SV Fixer, провайдера, Wi-Fi или мобильную сеть, шаги воспроизведения и что показала проверка. Это поможет сопоставить сбой с DNS, доступностью сервера или запуском VPN.
 
+<a name="из-чего-состоит-проект"></a>
+
 ## 🧩 Из чего состоит проект
 
 | Компонент | Роль |
@@ -129,10 +139,12 @@ Telegram подключается к локальному MTProto-прокси `
 | Gradle 8.10.2, Android Gradle Plugin 8.5.2, JDK 17 | Сборка APK через Gradle Wrapper. В JVM-тестах используются JUnit 4 и `org.json`. |
 
 <a name="build"></a>
+<a name="сборка"></a>
 
 ## 📦 Сборка
 
 <a name="build-apk"></a>
+<a name="apk-и-тесты"></a>
 
 ### APK и тесты
 
@@ -158,6 +170,8 @@ Telegram подключается к локальному MTProto-прокси `
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
+<a name="нативные-библиотеки"></a>
+
 ### Нативные библиотеки
 
 Готовые файлы для обеих ARM-архитектур уже включены, поэтому обычная сборка APK обходится без NDK. Для пересборки библиотек из исходников установите Android NDK 27.2. Скрипт предназначен для Windows. Он ищет NDK внутри Android SDK или использует путь из `ANDROID_NDK_HOME`.
@@ -167,6 +181,8 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
 Скрипт собирает `libbyedpi.so` и `libhev-socks5-tunnel.so` и записывает их в каталоги ABI внутри [app/src/main/jniLibs](app/src/main/jniLibs/).
+
+<a name="выпуск-и-обновление"></a>
 
 ### Выпуск и обновление
 
@@ -181,6 +197,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 Перед установкой SV Fixer сравнивает SHA-256 скачанного APK со значением из `version.json` и передаёт файл системному установщику. Android запрашивает подтверждение и проверяет подпись APK для обновления установленного приложения.
 
 <a name="source-map"></a>
+<a name="карта-исходников"></a>
 
 ## 🗂️ Карта исходников
 
@@ -195,6 +212,8 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 | [Diagnostics.kt](app/src/main/java/com/october/fixer/Diagnostics.kt), [ReportFormat.kt](app/src/main/java/com/october/fixer/ReportFormat.kt) | Сетевые проверки, события VPN и формат отчёта. |
 | [native/build.ps1](native/build.ps1), [native/third_party](native/third_party/), [jniLibs](app/src/main/jniLibs/) | Сборка, исходники и готовые нативные библиотеки. |
 | [app/src/test](app/src/test/) | JVM-тесты DNS, пакетов, Roblox, прокси, обновлений и диагностики. |
+
+<a name="лицензия"></a>
 
 ## 📄 Лицензия
 
